@@ -6,7 +6,7 @@ root = Tk()
 root.title("PPK Scientific Calculator") 
 root.configure(background = 'white') 
 root.resizable(width=False, height=False)
-root.geometry("705x420+0+0")
+root.geometry("695x420+0+0")
 calc = Frame(root)
 calc.grid()
 
@@ -244,7 +244,7 @@ btndeg = Button(calc, text="deg", width=6,height=2, bg='darkslategrey', fg='whit
 btnacosh = Button(calc, text="acosh", width=6,height=2, bg='darkslategrey', fg='white',font=('Courier New', 15, 'bold'),bd=4, command=added_value.acosh).grid(row=5, column=6, pady=0.5)
 btnasinh = Button(calc, text="asinh", width=6,height=2, bg='darkslategrey', fg='white',font=('Courier New', 15, 'bold'),bd=4, command=added_value.asinh).grid(row=5, column=7, pady=0.5)
 
-lblDisplay = Label(calc, text="PPK Scientific Calculator",font=('Courier New', 18, 'bold'),bg='white', fg='darkslategrey', justify=CENTER)
+lblDisplay = Label(calc, text="PPK Technology\nScientific Calculator",font=('Courier New', 18, 'bold'), fg='darkslategrey', justify=CENTER)
 lblDisplay.grid(row=0, column=4, columnspan=4)
 
 
