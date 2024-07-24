@@ -6,7 +6,7 @@ root = Tk()
 root.title("PPK Scientific Calculator") 
 root.configure(background = 'white') 
 root.resizable(width=False, height=False)
-root.geometry("760x420+0+0")
+root.geometry("705x420+0+0")
 calc = Frame(root)
 calc.grid()
 
@@ -190,7 +190,7 @@ class Calc():
 added_value = Calc()
 
 
-txtDisplay = Entry(calc,font=('Courier New', 15,'bold'),bg='darkslategrey',fg='white',bd=30,width=28,justify=RIGHT)
+txtDisplay = Entry(calc,font=('Courier New', 15,'bold'),bg='black',fg='white',bd=30,width=24,justify=RIGHT)
 txtDisplay.grid(row=0,column=0,columnspan=4,pady=0.5)
 txtDisplay.insert(0, "0")
 
