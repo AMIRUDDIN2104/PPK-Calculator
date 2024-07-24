@@ -6,7 +6,7 @@ root = Tk()
 root.title("PPK Scientific Calculator") 
 root.configure(background = 'white') 
 root.resizable(width=False, height=False)
-root.geometry("944x568+0+0")
+root.geometry("760x420+0+0")
 calc = Frame(root)
 calc.grid()
 
