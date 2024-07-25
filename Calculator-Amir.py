@@ -32,7 +32,7 @@ while True:
     operation = input("Enter the operation number (1/2/3/4) or 'stop': ").strip().lower()
 
     if operation == "stop":
-        print("Exiting calculator. Goodbye!")
+        print("Exiting calculator.")
         break
 
     if operation == "1":
@@ -42,7 +42,7 @@ while True:
             result = multiply(num1, num2)
             print(f"Result: {result}")
         except ValueError:
-            print("Error: Please enter valid numbers for multiplication.")
+            print("Error > enter valid numbers for multiplication.")
 
     elif operation == "2":
         try:
