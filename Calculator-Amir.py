@@ -1,5 +1,5 @@
 # Python code by Amir
-# Calculator
+# Scientific Calculator
 # Multiply/Modulus/Logs/Exponential
 
 import math
@@ -29,7 +29,7 @@ while True:
     print("3. Logarithm")
     print("4. Exponential")
 
-    operation = input("Enter the operation number (1/2/3/4) or 'stop': ").strip().lower()
+    operation = input("Enter the operation number (1/2/3/4) or 'stostop': ").strip().lower()
 
     if operation == "stop":
         print("Exiting calculator.")
