@@ -1,77 +1,120 @@
-# Python code by Amir
-# Scientific Calculator
-# Multiply/Modulus/Logs/Exponential
-
+import tkinter as tk
+from tkinter import messagebox
 import math
 
-def multiply(num1, num2):
-    return num1 * num2
-
-def calculate_modulus(dividend, divisor):
+# Function to handle multiplication
+def multiply():
     try:
-        return dividend % divisor
+        num1 = float(entry_num1.get())
+        num2 = float(entry_num2.get())
+        result = num1 * num2
+        label_result.config(text=f"Result: {result}")
+    except ValueError:
+        messagebox.showerror("Error", "Enter valid numbers for multiplication.")
+
+# Function to handle modulus
+def calculate_modulus():
+    try:
+        dividend = float(entry_dividend.get())
+        divisor = float(entry_divisor.get())
+        result = dividend % divisor
+        label_result.config(text=f"Result: {result}")
+    except ValueError:
+        messagebox.showerror("Error", "Enter valid numbers for modulus calculation.")
     except ZeroDivisionError:
-        return "Error: Division by zero is undefined."
+        messagebox.showerror("Error", "Division by zero is undefined.")
 
-def calculate_logarithm(base, number):
-    if base > 0 and base != 1 and number > 0:
-        return math.log(number, base)
-    else:
-        return "Error: Invalid input for logarithm calculation. Base must be > 0 and != 1; number must be > 0."
+# Function to handle logarithm
+def calculate_logarithm():
+    try:
+        base = float(entry_base.get())
+        number = float(entry_number.get())
+        result = math.log(number, base)
+        label_result.config(text=f"Result: {result}")
+    except ValueError:
+        messagebox.showerror("Error", "Enter valid numbers for logarithm calculation.")
+    except ValueError:
+        messagebox.showerror("Error", "Invalid input for logarithm calculation. Base must be > 0 and != 1; number must be > 0.")
 
-def calculate_exponent(base, exponent):
-    return base ** exponent
+# Function to handle exponentiation
+def calculate_exponent():
+    try:
+        base_exp = float(entry_base_exp.get())
+        exponent = float(entry_exponent.get())
+        result = base_exp ** exponent
+        label_result.config(text=f"Result: {result}")
+    except ValueError:
+        messagebox.showerror("Error", "Enter valid numbers for exponentiation.")
 
-while True:
-    print("\nSelect an operation (or type 'stop' to exit):")
-    print("1. Multiply")
-    print("2. Modulus")
-    print("3. Logarithm")
-    print("4. Exponential")
+# Create the main window
+root = tk.Tk()
+root.title("Calculator")
 
-    operation = input("Enter the operation number (1/2/3/4) or 'stostop': ").strip().lower()
+# Create input fields and labels
+label_num1 = tk.Label(root, text="Number1:")
+entry_num1 = tk.Entry(root)
 
-    if operation == "stop":
-        print("Exiting calculator.")
-        break
+label_num2 = tk.Label(root, text="Number2:")
+entry_num2 = tk.Entry(root)
 
-    if operation == "1":
-        try:
-            num1 = float(input("Enter Number1 for multiplication: "))
-            num2 = float(input("Enter Number2 for multiplication: "))
-            result = multiply(num1, num2)
-            print(f"Result: {result}")
-        except ValueError:
-            print("Error > enter valid numbers for multiplication.")
+label_dividend = tk.Label(root, text="Dividend:")
+entry_dividend = tk.Entry(root)
 
-    elif operation == "2":
-        try:
-            dividend = float(input("Enter dividend number: "))
-            divisor = float(input("Enter divisor: "))
-            result = calculate_modulus(dividend, divisor)
-            print(f"Result: {result}")
-        except ValueError:
-            print("Error > enter valid numbers for modulus calculation.")
+label_divisor = tk.Label(root, text="Divisor:")
+entry_divisor = tk.Entry(root)
 
-    elif operation == "3":
-        try:
-            base = float(input("Enter base: "))
-            number = float(input("Enter number (log X): "))
-            result = calculate_logarithm(base, number)
-            print(f"Result: {result}")
-        except ValueError:
-            print("Error > enter valid numbers for logarithm calculation.")
+label_base = tk.Label(root, text="Base:")
+entry_base = tk.Entry(root)
 
-    elif operation == "4":
-        try:
-            base_exp = float(input("Enter base exponent: "))
-            exponent = float(input("Enter exponent number: "))
-            result = calculate_exponent(base_exp, exponent)
-            print(f"Result: {result}")
-        except ValueError:
-            print("Error > enter valid numbers for exponentiation.")
+label_number = tk.Label(root, text="Number (log X):")
+entry_number = tk.Entry(root)
 
-    else:
-        print("Invalid input. Please select a valid operation (1/2/3/4) or stop to exit calculator.")
+label_base_exp = tk.Label(root, text="Base Exponent:")
+entry_base_exp = tk.Entry(root)
 
-# end code - Amir
+label_exponent = tk.Label(root, text="Exponent:")
+entry_exponent = tk.Entry(root)
+
+# Create buttons
+button_multiply = tk.Button(root, text="Multiply", command=multiply)
+button_modulus = tk.Button(root, text="Modulus", command=calculate_modulus)
+button_logarithm = tk.Button(root, text="Logarithm", command=calculate_logarithm)
+button_exponent = tk.Button(root, text="Exponential", command=calculate_exponent)
+
+# Create result label
+label_result = tk.Label(root, text="Result:")
+
+# Arrange widgets using grid layout
+label_num1.grid(row=0, column=0, sticky="e")
+entry_num1.grid(row=0, column=1)
+
+label_num2.grid(row=1, column=0, sticky="e")
+entry_num2.grid(row=1, column=1)
+
+label_dividend.grid(row=2, column=0, sticky="e")
+entry_dividend.grid(row=2, column=1)
+
+label_divisor.grid(row=3, column=0, sticky="e")
+entry_divisor.grid(row=3, column=1)
+
+label_base.grid(row=4, column=0, sticky="e")
+entry_base.grid(row=4, column=1)
+
+label_number.grid(row=5, column=0, sticky="e")
+entry_number.grid(row=5, column=1)
+
+label_base_exp.grid(row=6, column=0, sticky="e")
+entry_base_exp.grid(row=6, column=1)
+
+label_exponent.grid(row=7, column=0, sticky="e")
+entry_exponent.grid(row=7, column=1)
+
+button_multiply.grid(row=8, column=0, columnspan=2)
+button_modulus.grid(row=8, column=2, columnspan=2)
+button_logarithm.grid(row=9, column=0, columnspan=2)
+button_exponent.grid(row=9, column=2, columnspan=2)
+
+label_result.grid(row=10, column=0, columnspan=4)
+
+# Start the GUI event loop
+root.mainloop()
