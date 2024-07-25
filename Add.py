@@ -28,7 +28,7 @@ while True:
         num1 = float(input("Enter the first number: "))
         num2 = float(input("Enter the second number: "))
 
-    #addition
+        #addition
         if choice == '1':
             print(num1, "+", num2, "=",add(num1, num2))
 
@@ -40,9 +40,10 @@ while True:
         elif choice == '3':
             print(num1, "/", num2, "=",divide(num1, num2))
 
-        else:
-            print("Invalid Input")
+    elif choice == '4':
+        print("Exiting the calculator. Goodbye!")
+        break
     else:
-        break    
+        print("Invalid Input. Please choose a valid option (1 - 4).")    
         
 #code end here by Asyraf
